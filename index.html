@@ -6,37 +6,36 @@
 
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css'>
   <link rel="stylesheet" href="css/style.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script  src="js/index.js"></script>
 </head>
-
-  <body>
+<body>
   <div class="container">
-	<div class="card">
-  	<h4 class="card-header">Wiki Search</h4>
-  	<div class="card-body">
-    	<h4 class="card-title">Search for Wiki articles</h4>
-    	<p class="card-text">Or check out a random article</p>
-			<div class="row">
-    		<div class="col-lg-6">
-    			<div class="input-group">
-      <input type="text" id="search1" class="form-control" placeholder="Search for..." aria-label="Search for...">
-      <span class="input-group-btn">
-        <button id="search-button" class="btn btn-primary" type="button">Go!</button>
-      </span>
+    <div class="card">
+      <h4 class="card-header">Wiki Search</h4>
+      <div class="card-body">
+        <h4 class="card-title">Search for Wiki articles</h4>
+        <p class="card-text">Or check out a random article</p>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group">
+              <input type="text" id="search1" class="form-control" placeholder="Search for..." aria-label="Search for...">
+              <span class="input-group-btn">
+              <button id="search-button" class="btn btn-primary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <a href="#" class="btn btn-dark">Get Random Article</a>
+          </div>
+        </div>
+      </div>
     </div>
-  			</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<a href="#" class="btn btn-dark">Get Random Article</a>
-				</div>
-			</div>
-  	</div>
-	</div>
-	<div class="card-group">
-		<div class="loader mx-auto"></div>
-	</div>
-</div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script  src="js/index.js"></script>
-  </body>
+    <div class="card-group">
+      <div class="loader mx-auto"></div>
+    </div>
+  </div>
+</body>
 </html>
