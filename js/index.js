@@ -1,3 +1,5 @@
+var wikiData;
+
 function getSearchString(element) {
 	return document.getElementById(element).value;
 }
@@ -33,38 +35,40 @@ function search() {
     url: wikiURL,
     dataType: 'jsonp',
     success: function(data) {
-       console.log(data);
+  	wikiData = data;
     }
 	});
 }
 
 function createCards() {
-	var card = document.createElement('div');
-	card.setAttribute('class', 'card');
-	var cardBlock = document.createElement('div');
-	cardBlock.setAttribute('class', 'card-block');
-	var cardTitle = document.createElement('h3');
-	cardTitle.setAttribute('class', 'card-title');
-	var cardText = document.createElement('p');
-	cardText.setAttribute('class', 'card-text');
-	var cardButton = document.createElement('a');
-	cardButton.setAttribute('href', '#');
-	cardButton.setAttribute('class', 'btn btn-primary');
+	for (i = 0; i < wikiData[1].length; i++) {
+		var card = document.createElement('div');
+		card.setAttribute('class', 'card');
+		var cardBlock = document.createElement('div');
+		cardBlock.setAttribute('class', 'card-block');
+		var cardTitle = document.createElement('h3');
+		cardTitle.setAttribute('class', 'card-title');
+		var cardText = document.createElement('p');
+		cardText.setAttribute('class', 'card-text');
+		var cardButton = document.createElement('a');
+		cardButton.setAttribute('href', '#');
+		cardButton.setAttribute('class', 'btn btn-primary');
 
-	var titleText = document.createTextNode('Test Title');
-	var text = document.createTextNode('Test text');
-	var buttonText = document.createTextNode('Button text');
+		var titleText = document.createTextNode(wikiData[1][i]);
+		var text = document.createTextNode(wikiData[2][i]);
+		var buttonText = document.createTextNode([3][i]);
 
-	cardTitle.appendChild(titleText);
-	cardText.appendChild(text);
-	cardButton.appendChild(buttonText);
-	card.appendChild(cardBlock);
-	cardBlock.appendChild(cardTitle);
-	cardBlock.appendChild(cardText);
-	cardBlock.appendChild(cardButton);
+		cardTitle.appendChild(titleText);
+		cardText.appendChild(text);
+		cardButton.appendChild(buttonText);
+		card.appendChild(cardBlock);
+		cardBlock.appendChild(cardTitle);
+		cardBlock.appendChild(cardText);
+		cardBlock.appendChild(cardButton);
 
-	var cardContainer = document.getElementById('card-group');
-	cardContainer.appendChild(card);
+		var cardContainer = document.getElementById('card-group');
+		cardContainer.appendChild(card);
+	}
 }
 
 $(document).ready(function() {
@@ -72,5 +76,6 @@ $(document).ready(function() {
 		clearSearchCards('card-group');
 		search();
 		clearInputField("search1");
+		createCards(wikiData);
 	});
 });
