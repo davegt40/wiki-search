@@ -6,6 +6,13 @@ function clearInputField(element) {
 	document.getElementById(element).value = null;
 }
 
+function clearSearchCards(element) {
+	var parentNode = document.getElementById(element);
+	while (parentNode.firstChild) {
+	    parentNode.removeChild(parentNode.firstChild);
+	}
+}
+
 function wikiQueryBuilder() {
 	var wikiURL = "https://en.wikipedia.org/w/api.php";
 	wikiURL += '?' + $.param({
@@ -62,6 +69,7 @@ function createCards() {
 
 $(document).ready(function() {
 	$("#search-button").on("click", function() {
+		clearSearchCards('card-group');
 		search();
 		clearInputField("search1");
 	});
