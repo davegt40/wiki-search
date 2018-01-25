@@ -38,7 +38,6 @@ function search() {
   		wikiData = data;
     }
 	});
-	setTimeout(search, 10000);
 }
 
 function createCards() {
@@ -74,6 +73,12 @@ function createCards() {
 }
 
 $(document).ready(function() {
+	$('#search1').keypress(function(e){
+		if(e.which == 13) { // Enter key pressed
+			$('#search-button').click(); // Trigger search button click event
+		}
+	});
+
 	$("#search-button").on("click", function() {
 		clearSearchCards('card-group');
 		search();
