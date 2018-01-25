@@ -35,15 +35,17 @@ function search() {
     url: wikiURL,
     dataType: 'jsonp',
     success: function(data) {
-  	wikiData = data;
+  		wikiData = data;
     }
 	});
+	setTimeout(search, 10000);
 }
 
 function createCards() {
+	console.log(wikiData);
 	for (i = 0; i < wikiData[1].length; i++) {
 		var card = document.createElement('div');
-		card.setAttribute('class', 'card');
+		card.setAttribute('class', 'card col-xs-12 col-sm-12 col-md-12 col-lg-12');
 		var cardBlock = document.createElement('div');
 		cardBlock.setAttribute('class', 'card-block');
 		var cardTitle = document.createElement('h3');
@@ -51,12 +53,12 @@ function createCards() {
 		var cardText = document.createElement('p');
 		cardText.setAttribute('class', 'card-text');
 		var cardButton = document.createElement('a');
-		cardButton.setAttribute('href', '#');
-		cardButton.setAttribute('class', 'btn btn-primary');
+		cardButton.setAttribute('href', wikiData[3][i]);
+		cardButton.setAttribute('class', 'btn btn-info');
 
 		var titleText = document.createTextNode(wikiData[1][i]);
 		var text = document.createTextNode(wikiData[2][i]);
-		var buttonText = document.createTextNode([3][i]);
+		var buttonText = document.createTextNode('View on Wikipedia');
 
 		cardTitle.appendChild(titleText);
 		cardText.appendChild(text);
