@@ -36,6 +36,8 @@ function search() {
     dataType: 'jsonp',
     success: function(data) {
   		wikiData = data;
+			createCards(wikiData);
+			clearInputField("search1");
     }
 	});
 }
@@ -82,7 +84,5 @@ $(document).ready(function() {
 	$("#search-button").on("click", function() {
 		clearSearchCards('card-group');
 		search();
-		clearInputField("search1");
-		createCards(wikiData);
 	});
 });
