@@ -17,3 +17,17 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+#card-group {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 20px;
+}
+
+#card-group .card {
+	margin-bottom: 10px;
+}
+
+#card-group .card .btn {
+	margin-bottom: 10px;
+}
